@@ -50,11 +50,11 @@ namespace BIBLIOTECA.CAMADAS.DAL
             return LstEmprestimo;
         }
 
-      /*  public List<MODEL.Emprestimo> SelectByID(int ID)
+        public List<MODEL.Emprestimo> SelectByID(int ID)
         {
             List<MODEL.Emprestimo> LstEmprestimo = new List<MODEL.Emprestimo>();
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "SELECT * FROM EMPRESTIMO WHERE ID=@ID;";
+            string sql = "SELECT * FROM EMPRESTIMO WHERE ID=@ID";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@ID", ID);
             try
@@ -63,7 +63,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
                 SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 while (dados.Read())
                 {
-                       CAMADAS.MODEL.Emprestimo emprestimo = new MODEL.Emprestimo();
+                    CAMADAS.MODEL.Emprestimo emprestimo = new MODEL.Emprestimo();
                     emprestimo.ID = Convert.ToInt32(dados["ID"].ToString());
                     emprestimo.CLIENTE_ID = Convert.ToInt32(dados["CLIENTE_ID"].ToString());
                     emprestimo.DATA = Convert.ToDateTime(dados["DATA"].ToString());
@@ -85,7 +85,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
             }
 
             return LstEmprestimo;
-        }*/
+        }
         public void Inserir(MODEL.Emprestimo emprestimo)
         {
             SqlConnection conexao = new SqlConnection(strCon);

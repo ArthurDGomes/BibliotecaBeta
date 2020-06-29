@@ -28,11 +28,6 @@ namespace BIBLIOTECA.CAMADAS.DAL
                     itens.EMPRESTIMO_ID = Convert.ToInt32(dados["EMPRESTIMO_ID"].ToString());
                     itens.LIVRO_ID = Convert.ToInt32(dados["LIVRO_ID"].ToString());
                     itens.ENTREGA = Convert.ToDateTime(value: dados["ENTREGA"].ToString());
-                    /*recuperar nome do livro
-                    CAMADAS.BLL.Livros bllLivro = new BLL.Livros();
-                    List<MODEL.Livros> listaLivro = bllLivro.SelectByID(item.livroID);
-                    item.titulo = listaLivro[0].titulo;*/
-                    LstItens.Add(itens);
                 }
             }
             catch
@@ -58,18 +53,12 @@ namespace BIBLIOTECA.CAMADAS.DAL
                 SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 while (dados.Read())
                 {
-                    //preencher com dados do item
                     CAMADAS.MODEL.Itens item = new MODEL.Itens();
                     item.ID = Convert.ToInt32(dados["ID"].ToString());
                     item.EMPRESTIMO_ID = Convert.ToInt32(dados["EMPRESTIMO_ID"].ToString());
                     item.LIVRO_ID = Convert.ToInt32(dados["LIVRO_ID"].ToString());
                     item.ENTREGA = Convert.ToDateTime(dados["ENTREGA"].ToString());
 
-                    //recuperar nome do livro
-                   // CAMADAS.BLL.Livros bllLivro = new BLL.Livros();
-                    //CAMADAS.DAL.Livros DalLivros = new CAMADAS.DAL.Livros();
-                   // List<MODEL.Livros> listaLivro = bllLivro.SelectID(item.LIVRO_ID);
-                    // .titulo = listaLivro[0].TITULO;
 
                     lstItens.Add(item);
                 }
